@@ -8,6 +8,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 
 use App\Http\Requests\TransferRequest;
+use App\Models\Account;
 use App\Models\Amount;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,7 @@ class AuthController extends Controller
         $user_id = $request->get('user_id');
 
           if($user_id == Auth::id()){
-            $amount = Amount::create([
+            $amount = Account::create([
                 'amount' => $request->get('amount'),
                 'user_id' => $request->get('user_id'),
 
